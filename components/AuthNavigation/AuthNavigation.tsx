@@ -6,11 +6,12 @@ import { useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "../../lib/store/hooks";
 import { clearIsAuthenticated } from "../../lib/store/authSlice";
 import { logout } from "@/lib/api/clientApi";
+import { Button } from "../Button/Button";
 
 function AuthNavigation() {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { isAuthenticated, user } = useAppSelector(state => state.auth);
+  const { isAuthenticated } = useAppSelector(state => state.auth);
 
   const handleLogout = async () => {
     await logout();
@@ -19,16 +20,13 @@ function AuthNavigation() {
   };
 
   return isAuthenticated ? (
-    <ul>
-      <li className={css.navigationItem}>
-        <p className={css.userEmail}>{user?.username}</p>
-        <button onClick={handleLogout} className={css.logoutButton}>
-          Sign out
-        </button>
-      </li>
+    <ul className={css.navigation}>
+      <Button className={css.logoutButton} onClick={handleLogout} type="button">
+        Sign out
+      </Button>
     </ul>
   ) : (
-    <ul>
+    <ul className={css.navigation}>
       <li className={css.navigationItem}>
         <Link href="/sign-in" prefetch={false} className={css.navigationLink}>
           Login

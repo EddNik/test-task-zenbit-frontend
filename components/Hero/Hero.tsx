@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { clsx } from "clsx";
 import css from "./Hero.module.css";
+import cssBtn from "../Button/Button.module.css";
 
 export const Hero = () => {
   return (
@@ -15,7 +16,7 @@ export const Hero = () => {
             is
           </p>
         </div>
-        <Link href={"/deals"} className={css.heroBtn}>
+        <Link href={"/deals"} className={clsx(cssBtn.btnBase, css.heroBtn)}>
           Get Started
         </Link>
       </div>

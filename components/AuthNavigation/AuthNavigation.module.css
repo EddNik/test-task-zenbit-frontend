@@ -1,44 +1,54 @@
-.userEmail {
-  color: white;
-  margin-right: 0.5rem;
-  font-size: 0.9rem;
+.navigation .logoutButton {
+  border: 1px solid var(--button);
+  color: var(--button);
+  width: 120px;
 }
 
-.logoutButton {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-.logoutButton:hover {
-  background-color: white;
-  color: #333;
+.navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
 }
 
 .navigationItem {
   display: flex;
+  justify-content: center;
   align-items: center;
+  min-width: 120px;
+  border-radius: 8px;
+  padding: 10px 24px;
+  border: 1px solid var(--button);
+  cursor: pointer;
+  color: #b29f7e;
+}
+
+.navigationItem:hover {
+  background-color: var(--button-hover);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
 }
 
 .navigationLink {
   text-decoration: none;
-  color: white;
-  font-size: 1rem;
-
-  border: 1px solid #b29f7e;
-  border-radius: 5px;
-  padding: 11px 0px;
-  width: 160px;
-  height: 44px;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 138%;
+  text-align: center;
 }
 
-.navigationLink:hover {
-  color: #ddd;
+@media screen and (min-width: 738px) {
+  .navigation {
+    gap: 24px;
+  }
+  .navigationItem {
+    min-width: 160px;
+    padding: 12px 32px;
+    font-size: 18px;
+  }
+  .navigation .logoutButton {
+    width: 160px;
+  }
 }

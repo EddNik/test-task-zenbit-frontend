@@ -36,20 +36,6 @@ export default function RootLayout({
             </AuthProvider>
           </TanStackProvider>
         </StoreProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: "#363636",
-              color: "#fff",
-              fontSize: "16px",
-              borderRadius: "10px",
-              maxWidth: "100%",
-            },
-          }}
-        />
       </body>
     </html>
   );
