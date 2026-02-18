@@ -4,6 +4,7 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { Toaster } from "react-hot-toast";
 import Header from "../components/Header/Header";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import StoreProvider from "@/components/StoreProvider/StoreProvider";
 
 const lato = Lato({
   variable: "--font-Lato",
@@ -27,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lato.variable} ${merriweather.variable}`}>
-        <TanStackProvider>
-          <AuthProvider>
-            <Header />
-            <main>{children}</main>
-          </AuthProvider>
-        </TanStackProvider>
+        <StoreProvider>
+          <TanStackProvider>
+            <AuthProvider>
+              <Header />
+              <main>{children}</main>
+            </AuthProvider>
+          </TanStackProvider>
+        </StoreProvider>
         <Toaster
           position="top-center"
           reverseOrder={false}
