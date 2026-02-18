@@ -1,0 +1,76 @@
+.section {
+  background-image: url("/back-home.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.heroContainer {
+  padding: 100px 20px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: var(--inputs);
+  text-align: center;
+}
+
+.heroBtn {
+  display: inline-block;
+  min-width: 120px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 10px 24px;
+  background-color: transparent;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.heroBtn:hover {
+  background-color: var(--button-hover);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.titleWrapper {
+  width: 100%;
+  max-width: 1085px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 125%;
+  color: #fff;
+  text-align: center;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .heroBtn {
+    width: 160px;
+  }
+
+  .text {
+    width: calc(100% - 263px);
+    font-size: 24px;
+  }
+
+  .heroContainer {
+    padding: 377px 176px;
+  }
+
+  .title {
+    font-size: 64px;
+  }
+}
