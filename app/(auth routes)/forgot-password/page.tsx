@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import css from "./ForgotPasswordPage.module.css";
 import { Button } from "@/components/Button/Button";
 import { forgotPassword, ForgotPasswordResponse } from "@/lib/api/clientApi";

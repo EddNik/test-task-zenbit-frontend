@@ -3,13 +3,18 @@ import { api } from "./api";
 import { User } from "../../types/deals";
 
 interface FetchDealsResponse {
-  deals: Deal[];
+  message: string;
+  data: Deal[];
 }
 
-export async function fetchNotes(): Promise<FetchDealsResponse> {
+export async function fetchDeals(): Promise<FetchDealsResponse> {
   try {
     const { data } = await api.get<FetchDealsResponse>("/deals");
-    return data;
+
+    return {
+      message: data.message,
+      data: data.data,
+    };
   } catch (error) {
     throw error;
   }

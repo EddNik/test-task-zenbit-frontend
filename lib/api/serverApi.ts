@@ -2,12 +2,17 @@ import { cookies } from "next/headers";
 import { api } from "./api";
 import { User, Deal } from "../../types/deals";
 
-interface FetchNotesResponse {
-  notes: Deal[];
-  totalPages: number;
+interface FetchDealsResponse {
+  data: Deal[];
 }
 
-export async function fetchNotes(): Promise<FetchNotesResponse> {
+// Shape returned by the backend `/deals` endpoint
+// interface BackendDealsResponse {
+//   message: string;
+//   data: Deal[];
+// }
+
+export async function fetchDeals(): Promise<FetchDealsResponse> {
   const cookieStore = await cookies();
 
   const options = {
@@ -15,8 +20,11 @@ export async function fetchNotes(): Promise<FetchNotesResponse> {
   };
 
   try {
-    const { data } = await api.get<FetchNotesResponse>("/deals", options);
-    return data;
+    const { data } = await api.get<FetchDealsResponse>("/deals", options);
+
+    return {
+      data: data.data,
+    };
   } catch (error) {
     throw error;
   }

@@ -1,9 +1,13 @@
+"use client";
 import Link from "next/link";
 import { clsx } from "clsx";
 import css from "./Hero.module.css";
 import cssBtn from "../Button/Button.module.css";
+import { useAppSelector } from "@/lib/store/hooks";
 
 export const Hero = () => {
+  const { isAuthenticated } = useAppSelector(state => state.auth);
+
   return (
     <section className={css.section}>
       <div className={clsx(css.heroContainer, "layoutContainer")}>
@@ -16,9 +20,15 @@ export const Hero = () => {
             is
           </p>
         </div>
-        <Link href={"/deals"} className={clsx(cssBtn.btnBase, css.heroBtn)}>
-          Get Started
-        </Link>
+        {isAuthenticated ? (
+          <Link href={"/deals"} className={clsx(cssBtn.btnBase, css.heroBtn)}>
+            Get Started
+          </Link>
+        ) : (
+          <Link href={"/sign-in"} className={clsx(cssBtn.btnBase, css.heroBtn)}>
+            Get Started
+          </Link>
+        )}
       </div>
     </section>
   );

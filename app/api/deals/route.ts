@@ -9,13 +9,13 @@ import { logErrorResponse } from "../_utils/utils";
 export async function GET() {
   try {
     const cookieStore = await cookies();
-    const res = await api.get("/deals", {
+    const { data, status } = await api.get("/deals", {
       headers: {
         Cookie: cookieStore.toString(),
       },
     });
-    const deals = (res.data as any)?.data ?? res.data;
-    return NextResponse.json({ deals }, { status: res.status });
+
+    return NextResponse.json({ data: data?.data }, { status });
   } catch (error) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
@@ -25,7 +25,9 @@ export async function GET() {
       );
     }
     logErrorResponse({ message: (error as Error).message });
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
-

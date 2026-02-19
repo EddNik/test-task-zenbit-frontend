@@ -21,8 +21,7 @@ export async function POST(req: NextRequest) {
     const contentType = res.headers.get("content-type") ?? "";
     if (contentType.includes("application/json")) {
       const raw = await res.json();
-      const payload = (raw as any)?.data ?? raw;
-      return NextResponse.json(payload, { status: res.status });
+      return NextResponse.json(raw, { status: res.status });
     }
 
     const text = await res.text();
@@ -34,4 +33,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
