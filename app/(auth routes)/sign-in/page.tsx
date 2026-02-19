@@ -7,11 +7,13 @@ import { useState } from "react";
 import { ApiError } from "@/app/api/api";
 import { useAppDispatch } from "@/lib/store/hooks";
 import { setUser } from "@/lib/store/authSlice";
+import Link from "next/link";
+import { Button } from "@/components/Button/Button";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 
 function SignInPage() {
   const router = useRouter();
   const [error, setError] = useState("");
-  // const { setUser } = useAuthStore();
 
   const dispatch = useAppDispatch();
 
@@ -37,39 +39,50 @@ function SignInPage() {
   return (
     <>
       <main className={css.mainContent}>
-        <form className={css.form} action={handleSubmit}>
-          <h1 className={css.formTitle}>Login</h1>
+        <div className={css.leftSide}></div>
+        <div className={css.rightSide}>
+          <form className={css.form} action={handleSubmit}>
+            <h1 className={css.formTitle}>Login</h1>
+            <div className={css.formGroup}>
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                className={css.input}
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div className={css.formGroup}>
+              <label htmlFor="password">Password</label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                className={css.input}
+                required
+              />
+            </div>
+            <Link href="#" className={css.linkForgot}>
+              Forgot password?
+            </Link>
 
-          <div className={css.formGroup}>
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              className={css.input}
-              required
-            />
-          </div>
-
-          <div className={css.formGroup}>
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              className={css.input}
-              required
-            />
-          </div>
-
-          <div className={css.actions}>
-            <button type="submit" className={css.submitButton}>
+            <Button type="submit" className={css.submitButton}>
               Sign in
-            </button>
-          </div>
+            </Button>
+            {error && <p className={css.error}>{error}</p>}
 
-          {error && <p className={css.error}>{error}</p>}
-        </form>
+            <div className={css.signUpBlock}>
+              <p>
+                Don’t have account?
+                <Link href="/sign-up" className={css.linkForgot}>
+                  Sign Up
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
       </main>
     </>
   );

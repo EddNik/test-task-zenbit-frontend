@@ -4,17 +4,11 @@ import css from "./Button.module.css";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   className?: string;
-  variant?: "primary" | "loader";
 }
 
-export const Button = ({
-  children,
-  // variant = "primary",
-  className,
-  ...props
-}: ButtonProps) => {
+export const Button = ({ children, className, ...props }: ButtonProps) => {
   return (
-    <button type="button" className={clsx(css.btnBase, className)} {...props}>
+    <button className={clsx(css.btnBase, className)} {...props}>
       {children}
     </button>
   );
