@@ -1,7 +1,6 @@
 import { Lato, Merriweather } from "next/font/google";
 import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
-import { Toaster } from "react-hot-toast";
 import Header from "../components/Header/Header";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import StoreProvider from "@/components/StoreProvider/StoreProvider";

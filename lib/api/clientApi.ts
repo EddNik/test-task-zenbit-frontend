@@ -82,6 +82,52 @@ export async function getMe(): Promise<User> {
   }
 }
 
+export type ForgotPasswordRequest = {
+  email: string;
+};
+
+export type ForgotPasswordResponse = {
+  success: boolean;
+  token?: string;
+};
+
+export async function forgotPassword(
+  request: ForgotPasswordRequest
+): Promise<ForgotPasswordResponse> {
+  try {
+    const { data } = await api.post<ForgotPasswordResponse>(
+      "/auth/forgot-password",
+      request
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export type ResetPasswordRequest = {
+  token: string;
+  password: string;
+};
+
+export type ResetPasswordResponse = {
+  success: boolean;
+};
+
+export async function resetPassword(
+  request: ResetPasswordRequest
+): Promise<ResetPasswordResponse> {
+  try {
+    const { data } = await api.post<ResetPasswordResponse>(
+      "/auth/reset-password",
+      request
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export type UpdateMeRequest = {
   username: string;
 };

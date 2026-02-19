@@ -9,7 +9,6 @@ import { useAppDispatch } from "@/lib/store/hooks";
 import { setUser } from "@/lib/store/authSlice";
 import Link from "next/link";
 import { Button } from "@/components/Button/Button";
-import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 
 function SignInPage() {
   const router = useRouter();
@@ -64,14 +63,13 @@ function SignInPage() {
                 required
               />
             </div>
-            <Link href="#" className={css.linkForgot}>
+            <Link href="/forgot-password" className={css.linkForgot}>
               Forgot password?
             </Link>
 
             <Button type="submit" className={css.submitButton}>
               Sign in
             </Button>
-            {error && <p className={css.error}>{error}</p>}
 
             <div className={css.signUpBlock}>
               <p>
@@ -81,6 +79,7 @@ function SignInPage() {
                 </Link>
               </p>
             </div>
+            {error && <p className={css.error}>{error}</p>}
           </form>
         </div>
       </main>
