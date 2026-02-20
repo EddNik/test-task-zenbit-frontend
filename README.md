@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Zenbit Frontend Test Task This is a Next.js frontend application developed for
+managing deals, featuring an integrated authentication system.
 
-## Getting Started
+🚀 Tech Stack Framework: Next.js 15 (App Router)
 
-First, run the development server:
+Language: TypeScript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+State Management: Redux Toolkit
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Data Fetching: TanStack Query (React Query) & Axios
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Styling: CSS Modules
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✨ Key Features Authentication: Registration, Login, Logout, and Session
+validation.
 
-## Learn More
+Password Recovery: "Forgot Password" functionality and password reset via token.
 
-To learn more about Next.js, take a look at the following resources:
+Deals Management: View a list of deals and create new entries.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Hybrid Rendering: Utilizing Server Components for initial data fetching and
+Client Components for interactivity.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🛠 API Architecture The project splits request logic into two parts to properly
+handle cookies in Next.js:
 
-## Deploy on Vercel
+Client API (lib/api/clientApi.ts): Used in client-side components. The browser
+automatically attaches cookies to requests.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Server API (lib/api/serverApi.ts): Used in server-side components. Cookies are
+manually forwarded from the request headers.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📁 Project Structure - app/ — Next.js routing, layouts, and API routes.
+
+    - components/ — Reusable UI components (Button, Header, Loader, etc.).
+
+l - ib/ — Redux configuration, API clients, and custom hooks.
+
+    - public/ — Static assets (images, icons).
+
+    - types/ — TypeScript type definitions.
+
+🚀 Getting Started Install dependencies:
+
+`npm install`
+
+Configure environment variables: Create a .env file in the root directory and
+add your API base URL:
+
+`NEXT_PUBLIC_API_URL=https://your-api-url.com`
+
+Run the development server:
+
+`npm run dev` Production build:
+
+Bash
+
+````npm run build
+npm start```
+````

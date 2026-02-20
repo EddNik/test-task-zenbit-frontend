@@ -6,12 +6,6 @@ interface FetchDealsResponse {
   data: Deal[];
 }
 
-// Shape returned by the backend `/deals` endpoint
-// interface BackendDealsResponse {
-//   message: string;
-//   data: Deal[];
-// }
-
 export async function fetchDeals(): Promise<FetchDealsResponse> {
   const cookieStore = await cookies();
 
