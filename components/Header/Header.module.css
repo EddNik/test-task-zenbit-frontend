@@ -16,6 +16,41 @@
   gap: 10px;
 }
 
+.navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.navigationItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  border-radius: 8px;
+  padding: 10px 24px;
+  border: 1px solid var(--button);
+  cursor: pointer;
+  color: #b29f7e;
+}
+
+.navigationItem:hover {
+  background-color: var(--button-hover);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+}
+
+.navigationLink {
+  text-decoration: none;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 138%;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .header {
     justify-content: flex-end;

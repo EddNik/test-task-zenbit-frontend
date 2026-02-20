@@ -5,12 +5,24 @@ function Deals({ deals }: { deals: Deal[] }) {
   if (!deals || deals.length === 0) {
     return <p>No deals available at the moment.</p>;
   }
+  //   deals.map(deal => {
+  //     console.log("Image URL:", deal.image);
+  //   });
   return (
     <>
       {deals.length > 0 && (
         <ul className={css.list}>
           {deals.map(deal => (
-            <li key={deal.id} className={css.listItem}>
+            <li
+              key={deal.id}
+              className={css.listItem}
+              style={{
+                backgroundImage: `url('${deal.image}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
               <div>
                 <h2 className={css.title}>{deal.title}</h2>
                 <p className={css.content}>{deal.price}</p>
