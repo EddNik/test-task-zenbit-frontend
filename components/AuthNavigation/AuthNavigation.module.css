@@ -1,7 +1,6 @@
 .navigation .logoutButton {
   border: 1px solid var(--button);
   color: var(--button);
-  width: 120px;
 }
 
 .navigation {
@@ -16,9 +15,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 120px;
+  /* min-width: 120px; */
+  min-width: auto;
   border-radius: 8px;
-  padding: 10px 24px;
+  padding: 8px 12px;
   border: 1px solid var(--button);
   cursor: pointer;
   color: #b29f7e;
@@ -34,7 +34,7 @@
   text-decoration: none;
   font-family: var(--second-family);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 138%;
   text-align: center;
 }
@@ -43,12 +43,10 @@
   .navigation {
     gap: 24px;
   }
-  .navigationItem {
+  .navigationItem,
+  .navigation .logoutButton {
     min-width: 160px;
     padding: 12px 32px;
     font-size: 18px;
-  }
-  .navigation .logoutButton {
-    width: 160px;
   }
 }

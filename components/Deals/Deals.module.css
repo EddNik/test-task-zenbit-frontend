@@ -9,9 +9,9 @@
 
 .listItem {
   display: flex;
-  gap: 40px;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 5px;
 
   border: 1px solid #dee2e6;
   border-radius: 8px;
@@ -19,19 +19,19 @@
 
   border-radius: 5px;
 
-  width: calc((100% - 20px) / 2);
+  width: calc((100% - 20px) / 1);
   height: 400px;
 
   color: #fff;
 }
 
 .listItem > * {
-  flex: 1; /* each child takes equal width */
-  min-width: 0; /* prevents overflow */
+  flex: 1;
+  min-width: 0;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
@@ -39,7 +39,7 @@
 .content {
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 122%;
   color: #fff;
 }
@@ -48,4 +48,17 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .listItem {
+    width: calc((100% - 20px) / 2);
+    gap: 40px;
+  }
+
+  .title,
+  .content {
+    font-size: 18px;
+  }
 }

@@ -18,15 +18,19 @@ function Header() {
         position: isDealsPage ? "relative" : "sticky",
       }}
     >
+      {isDealsPage && <h1 className={css.title}>Open Deals</h1>}
+
       {!isLoginPage && (
-        <nav aria-label="Main Navigation">
+        <nav
+          aria-label="Main Navigation"
+          className={isDealsPage ? css.hideMobile : ""}
+        >
           <AuthNavigation />
         </nav>
       )}
 
       {isDealsPage && (
         <nav className={css.navigation}>
-          <h1 className={css.title}>Open Deals</h1>
           <li className={css.navigationItem}>
             <Link href="/" prefetch={false} className={css.navigationLink}>
               Home

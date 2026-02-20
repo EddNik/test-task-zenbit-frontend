@@ -22,8 +22,9 @@
   font-size: 20px;
   line-height: 121%;
   color: #b29f7e;
-  /* position: absolute; */
-  left: 0px;
+  margin-right: auto;
+  position: absolute;
+  left: 80px;
 }
 
 .navigation {
@@ -39,13 +40,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* min-width: 120px; */
   min-width: auto;
   border-radius: 8px;
   padding: 8px 16px;
   border: 1px solid var(--button);
   cursor: pointer;
   color: #b29f7e;
+  margin-right: 80px;
 }
 
 .navigationItem:hover {
@@ -62,6 +63,9 @@
   line-height: 138%;
   text-align: center;
 }
+.hideMobile {
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
   .header {
@@ -72,10 +76,12 @@
   }
   .title {
     font-size: 28px;
-    position: absolute;
-    left: 0;
   }
   .navigationLink {
     font-size: 16px;
+  }
+
+  .navigationItem {
+    margin-right: 40px;
   }
 }

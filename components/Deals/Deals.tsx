@@ -28,7 +28,9 @@ function Deals({ deals }: { deals: Deal[] }) {
               <div className={css.contentWrapper}>
                 <h2 className={css.title}>{deal.title}</h2>
                 <p className={css.content}>{formatPrice(deal.price)} Dhs</p>
-                <p className={css.content}>Tiket - {formatPrice(deal.tiket)}</p>
+                <p className={css.content}>
+                  Tiket - {formatPrice(deal.tiket)} Dhs
+                </p>
               </div>
               <div className={css.contentWrapper}>
                 <p className={css.content}>Yield {deal.yield}</p>
