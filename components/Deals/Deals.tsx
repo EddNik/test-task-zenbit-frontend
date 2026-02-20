@@ -5,9 +5,11 @@ function Deals({ deals }: { deals: Deal[] }) {
   if (!deals || deals.length === 0) {
     return <p>No deals available at the moment.</p>;
   }
-  //   deals.map(deal => {
-  //     console.log("Image URL:", deal.image);
-  //   });
+
+  function formatPrice(price: number | string): string {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+
   return (
     <>
       {deals.length > 0 && (
@@ -23,16 +25,16 @@ function Deals({ deals }: { deals: Deal[] }) {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <div>
+              <div className={css.contentWrapper}>
                 <h2 className={css.title}>{deal.title}</h2>
-                <p className={css.content}>{deal.price}</p>
-                <p className={css.content}>{deal.tiket}</p>
+                <p className={css.content}>{formatPrice(deal.price)} Dhs</p>
+                <p className={css.content}>Tiket - {formatPrice(deal.tiket)}</p>
               </div>
-              <div>
-                <p className={css.content}>{deal.yield}</p>
-                <p className={css.content}>{deal.daysLeft}</p>
+              <div className={css.contentWrapper}>
+                <p className={css.content}>Yield {deal.yield}</p>
+                <p className={css.content}>Days Left {deal.daysLeft}</p>
               </div>
-              <p className={css.content}>{deal.sold}</p>
+              <p className={css.content}>Sold {deal.sold}</p>
             </li>
           ))}
         </ul>

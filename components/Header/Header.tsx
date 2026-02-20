@@ -11,7 +11,13 @@ function Header() {
   const isDealsPage = pathname === "/deals";
 
   return (
-    <header className={css.header}>
+    <header
+      className={css.header}
+      style={{
+        backgroundColor: isDealsPage ? "transparent" : "#172234",
+        position: isDealsPage ? "relative" : "sticky",
+      }}
+    >
       {!isLoginPage && (
         <nav aria-label="Main Navigation">
           <AuthNavigation />
@@ -20,6 +26,7 @@ function Header() {
 
       {isDealsPage && (
         <nav className={css.navigation}>
+          <h1 className={css.title}>Open Deals</h1>
           <li className={css.navigationItem}>
             <Link href="/" prefetch={false} className={css.navigationLink}>
               Home
